@@ -1,0 +1,24 @@
+{% extends "homepage.html" %}
+{% block content %}
+
+<h2> Invariants </h2>
+<table>
+    <tr><td>Level:</td><td>{{orbit.level}}</td></tr>
+    <tr><td>Weight:</td><td>{{orbit.weight}}</td></tr>
+    <tr><td>Galois orbit of Dirichlet characters</td><td>{{orbit.chiorbit}}</td></tr>
+    <tr><td>Orbit label:</td><td>{{letterlabel}}</td></tr>
+</table>
+<h2> Defining polynomial for number field </h2>
+<table>
+    {{orbit.poly}}
+</table>
+
+<h2>Embeddings</h2>
+
+<table>
+    {% for embedding in embeddings %}
+    <tr><td>{{embedding.chi}}.{{embedding.j}}</td><td>{{embedding.coeffs}}</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

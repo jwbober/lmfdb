@@ -1,0 +1,18 @@
+{% extends "homepage.html" %}
+{% block content %}
+
+<h2> Invariants </h2>
+<table>
+    <tr><td>Level:</td><td>{{mf.level}}</td></tr>
+    <tr><td>Weight:</td><td>{{mf['weight']}}</td></tr>
+    <tr><td>Dirichlet character:</td><td>{{mf['chi']}}</td></tr>
+    <tr><td>Index:</td><td>{{mf['j']}}</td></tr>
+</table>
+<h2> Coefficients </h2>
+<table>
+    {% for coeff in mf['coeffs'][1:] %}
+        <tr><td>{{coeff | floatpairtocomplexstring}}</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

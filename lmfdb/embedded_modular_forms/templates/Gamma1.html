@@ -1,0 +1,17 @@
+{% extends "homepage.html" %}
+{% block content %}
+
+<h2> Invariants </h2>
+<table>
+    <tr><td>Level:</td><td>{{level}}</td></tr>
+    <tr><td>Weight:</td><td>{{weight}}</td></tr>
+</table>
+<h2> Decomposition of this space </h2>
+<table class="ntdata">
+    <tr><td>Orbit label</td><td>Defining polynomial of field of coefficients</td></tr>
+    {% for orbit in orbits %}
+        {{ tableentryprinter(orbit) | safe }}
+    {% endfor %}
+</table>
+
+{% endblock %}

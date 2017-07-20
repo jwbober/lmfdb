@@ -1,0 +1,25 @@
+{% extends "homepage.html" %}
+{% block content %}
+
+<h2> Invariants </h2>
+<table>
+    <tr><td>Level:</td><td>{{level}}</td></tr>
+    <tr><td>Weight:</td><td>{{weight}}</td></tr>
+    <tr><td>Character:</td><td>{{chi}}</td></tr>
+</table>
+<h2> Decomposition of this space </h2>
+<table>
+    {% if labelled %}
+        {% for orbit in orbits %}
+        <tr><td>{{orbit.level}}.{{orbit.weight}}.{{orbit.chi}}.{{(orbit.orbitnumber - 1) | cremonalettercode}}</td>
+            <td>{% if orbit.poly == '' %}Degree {{orbit.degree}}{% else %}{{orbit.poly}}{% endif %}</td></tr>
+        {% endfor %}
+    {% else %}
+        {% for orbit in orbits %}
+        <tr><td>{{orbit.level}}.{{orbit.weight}}.{{orbit.chi}}.{{orbit.j}}</td>
+            <td>{% if orbit.poly == '' %}Degree {{orbit.degree}}{% else %}{{orbit.poly}}{% endif %}</td></tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+{% endblock %}

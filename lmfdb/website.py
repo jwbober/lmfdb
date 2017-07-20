@@ -79,6 +79,9 @@ import modlmf
 assert modlmf
 import rep_galois_modl
 assert rep_galois_modl
+import embedded_modular_forms
+assert embedded_modular_forms
+
 
 # Currently uploading is not supported
 # import upload
@@ -93,6 +96,8 @@ from pymongo import ReadPreference
 from base import app, set_logfocus, get_logfocus, _init
 from flask import g, render_template, request, make_response, redirect, url_for, current_app, abort
 import sage
+
+import filters
 
 DEFAULT_DB_PORT = 37010
 LMFDB_SAGE_VERSION = '7.1'
