@@ -81,6 +81,8 @@ import rep_galois_modl
 assert rep_galois_modl
 import embedded_modular_forms
 assert embedded_modular_forms
+import LDB
+assert LDB
 
 
 # Currently uploading is not supported
