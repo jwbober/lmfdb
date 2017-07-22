@@ -68,7 +68,8 @@ table.ntdata tr.more:nth-child(2n) { background: {{color.table_ntdata_background
 {% endif %}
 
 {% if DEBUG %}
-<p>Lhash : <a href='/api/Lfunctions/Lfunctions/?Lhash=s{{L.Lhash}}'>{{L.Lhash}}</a></p>
+<p>Lhash : <a href='/api/Lfunctions/Lfunctions/?Lhash=s{{L.Lhash}}'>{{L.Lhash}}</a>,
+<a href='/api/Lfunctions/instances/?Lhash=s{{L.Lhash}}'>instances</a> </p>
 {% endif %}
 
  <h2> {{ KNOWL('lfunction.dirichlet_series', title='Dirichlet series') }}</h2>

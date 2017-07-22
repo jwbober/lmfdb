@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request, make_response
 from lmfdb.LDB import LDBpage
 import lmfdb.LDB.typesetting
-from sage.all import ZZ, RR, CC, pi, spline, plot
+from sage.all import spline, plot
 from lmfdb.LDB.dbinterface import getLfunction
 
 import os
@@ -27,9 +27,13 @@ def route(instance):
             ('Self-dual', str(lfunction['self_dual'])),
             ('Motivic Weight', str(lfunction['motivic_weight']))
                 ]
+
+    origins = [(url, r'/' + url) for url in lfunction['instances']]
+
     return render_template("Lfunction_from_DB.html",
             L = lfunction,
             properties2 = properties,
+            origins = origins
             )
 
 @LDBpage.route("/plot/<path:instance>")

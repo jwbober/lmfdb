@@ -60,6 +60,7 @@ def getLfunction(id):
         Lhash = id
     else:
         Lhash = result['Lhash']
+
     lfunction = LFDB.Lfunctions.find_one({'Lhash' : Lhash})
     if lfunction is None:
         return None, None
@@ -67,6 +68,12 @@ def getLfunction(id):
         conjugate = lfunction
     else:
         conjugate = LFDB.Lfunctions.find_one({'Lhash' : lfunction['conjugate']})
+
+    instances = [x['url'] for x in LFDB.instances.find({'Lhash' : Lhash})]
+    instances2 = [x['url'] for x in LFDB.instances.find({'Lhash' : conjugate['Lhash']})]
+
+    lfunction['instances'] = instances
+    conjugate['instances'] = instances2
 
     populate_dirichlet_coefficients(lfunction)
     populate_dirichlet_coefficients(conjugate)
